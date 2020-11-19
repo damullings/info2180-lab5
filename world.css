@@ -1,1 +1,38 @@
 /* Add your own styles */
+
+#top
+{
+    background-color: wheat;
+    text-align: center;
+}
+table
+{
+    margin-left: 15%;
+    border-collapse: separate;
+    border-spacing: 0;
+    column-width: 20;
+    color: #022644;
+}
+
+th,td
+{
+    padding: 20px;
+    text-align: center;
+    
+}
+
+thead {
+    background: #424c55;
+    color: #fff;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  tbody tr {
+    background: #D1CCDC;
+  }
+  
+
+tbody tr:nth-child(even) {
+    background: #f5edf0;
+}
