@@ -27,6 +27,17 @@ img
     box-shadow: 10px 10px 5px #0d5c63cc;
     
 }
+footer
+{
+    background-color: #F5EDF0;
+    text-align: center;
+    color:  #0d5c63cc;
+    height: 50px;
+}
+footer> p
+{
+    padding-top: 5px;
+}
 button/*Button*/
 {
     background-color: #0D5C63;
