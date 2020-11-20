@@ -19,50 +19,37 @@ catch(Exception $e)
 header('Content-Type: application/json');
 //echo json_encode($superheroes);
 
-$query = strval($_GET["query"]);
+$query = strval($_GET["country"]);
+$context = strval($_GET["context"]);
 
 $query = filter_var(htmlentities($query), FILTER_SANITIZE_STRING);
 $query = html_entity_decode($query,ENT_QUOTES); //I converted it to html to preserve the quotes that are in some names
 
-$statement = $conn->query("SELECT * FROM countries WHERE name LIKE '%$query%'");
+
 //$statement->bindValue(1,$query);
 //$statement->execute(); 
 
-$results = $statement->fetchAll(PDO::FETCH_ASSOC)
+
+
+
+if ($context == "cities")
+{
+  $statement = $conn->query("SELECT c.name, c.district, c.population 
+  FROM cities c JOIN countries cs on c.country_code = cs.code 
+  WHERE cs.name LIKE '%$query%'
+  
+  ");
+  $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+  require 'city.php';
+}
+else
+{
+  $statement = $conn->query("SELECT * FROM countries WHERE name LIKE '%$query%'");
+  $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+  require 'country.php';
+}
+
+
+
 ?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>World Database</title>
-        <link rel="stylesheet" href="world.css" type="text/css" />
-    </head>
-    <body>
-        <table>
-            <caption>Country Lookup</caption>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Continent</th>
-                    <th>Independence</th>
-                    <th>Head of State</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($results as $row): ?>
-                <tr>
-                    <td scope="col"><?= $row['name']; ?></td>
-                    <td scope="col"><?= $row['continent']; ?></td>
-                    <td scope="col"><?= $row['independence_year']; ?></td>
-                    <td scope="col"><?= $row['head_of_state']; ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-
-
 <ul>
-<?php foreach ($results as $row): ?>
-  <li><?= $row['name'] . ' is ruled by ' . $row['head_of_state']; ?></li>
-<?php endforeach; ?>
-</ul>

@@ -2,7 +2,10 @@
 window.onload = function()
 {
     var lookupbtn = document.getElementById("lookup");
+    var cityLookupbtn = document.getElementById("lookupCities");
+
     lookupbtn.addEventListener("click",search);
+    cityLookupbtn.addEventListener("click",searchCity);
 }
 
 function search()
@@ -13,6 +16,14 @@ function search()
     AjaxRequest(url,displayResponse,searchVal)
 }
 
+function searchCity()
+{
+    var url = "world.php";
+    //Get value entered
+    searchVal = document.getElementById("country").value 
+    searchVal +="&context=cities"
+    AjaxRequest(url,displayResponse,searchVal)
+}
 
 function AjaxRequest(url,func,search)
 {
@@ -31,7 +42,7 @@ function AjaxRequest(url,func,search)
         }
     }
     };
-    mess = url+"?query=" + search
+    mess = url+"?country=" + search
     httpRequest.requestType = "json"
     httpRequest.open("GET", mess);
     httpRequest.send();
