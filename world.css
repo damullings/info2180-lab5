@@ -1,16 +1,53 @@
 /* Add your own styles */
 
+html, body, h1, h2, h3, h4, h5, h6  
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, "Noto Sans", sans-serif;
+    
+}
 #top
 {
-    background-color: wheat;
+    background-color: #F5EDF0;
     text-align: center;
 }
+
+
+img
+{
+    height: 160px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#country
+{
+    height: 40px;
+    width: 500px;
+    box-shadow: 10px 10px 5px #0d5c63cc;
+    
+}
+button/*Button*/
+{
+    background-color: #0D5C63;
+    height: 55px;
+    width: 200px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: solid;
+    color: white;
+    margin-bottom: 20px;
+}
+
+
 table
 {
-    margin-left: 15%;
+    margin-left: auto;
+    margin-right: auto;
     border-collapse: separate;
     border-spacing: 0;
-    column-width: 20;
+    column-width: 40;
     color: #022644;
 }
 
@@ -20,19 +57,20 @@ th,td
     text-align: center;
     
 }
-
+th{
+    background-color: #0D5C63;
+}
 thead {
-    background: #424c55;
     color: #fff;
     font-size: 11px;
     text-transform: uppercase;
   }
 
   tbody tr {
-    background: #D1CCDC;
+    background: #bcd9799c;
   }
   
 
 tbody tr:nth-child(even) {
-    background: #f5edf0;
+    background: #F5EDF0;
 }

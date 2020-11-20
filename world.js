@@ -13,6 +13,7 @@ function search()
     var url = "world.php";
     //Get value entered
     searchVal = document.getElementById("country").value 
+    searchVal +="&context=blank"
     AjaxRequest(url,displayResponse,searchVal)
 }
 

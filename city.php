@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>World Database</title>
-        <link rel="stylesheet" href="world.css" type="text/css" />
-    </head>
-    <body>
+        <br>
         <table>
             <thead>
                 <tr>
